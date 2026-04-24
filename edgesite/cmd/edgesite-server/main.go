@@ -41,11 +41,11 @@ func main() {
 	// when -logtostderr=true (the default).
 	// Ref: kubernetes/klog#212, kubernetes/klog#432
 	if err := local.Set("legacy_stderr_threshold_behavior", "false"); err != nil {
-		fmt.Fprintf(os.Stderr, "error setting legacy_stderr_threshold_behavior: %v", err)
+		fmt.Fprintf(os.Stderr, "error setting legacy_stderr_threshold_behavior: %v\n", err)
 	}
 	err := local.Set("v", "4")
 	if err != nil {
-		fmt.Fprintf(os.Stderr, "error setting klog flags: %v", err)
+		fmt.Fprintf(os.Stderr, "error setting klog flags: %v\n", err)
 	}
 	local.VisitAll(func(fl *flag.Flag) {
 		fl.Name = util.Normalize(fl.Name)
